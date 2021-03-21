@@ -24,7 +24,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.android.uamp.R
 import com.example.android.uamp.databinding.FragmentNowplayingBinding
@@ -44,37 +43,45 @@ class NowPlayingFragment : Fragment() {
         InjectorUtils.provideNowPlayingFragmentViewModel(requireContext())
     }
 
-    lateinit var binding: FragmentNowplayingBinding
-
     companion object {
         fun newInstance() = NowPlayingFragment()
     }
 
+    private var binding: FragmentNowplayingBinding? = null
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentNowplayingBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    ) = FragmentNowplayingBinding.inflate(inflater, container, false)
+        .also { binding = it }
+        .root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // Always true, but lets lint know that as well.
+        val binding = binding ?: return
+
+        // Always true, but lets lint know that as well.
         val context = activity ?: return
 
         // Attach observers to the LiveData coming from this ViewModel
-        nowPlayingViewModel.mediaMetadata.observe(viewLifecycleOwner,
-            Observer { mediaItem -> updateUI(view, mediaItem) })
-        nowPlayingViewModel.mediaButtonRes.observe(viewLifecycleOwner,
-            Observer { res ->
+        nowPlayingViewModel.apply {
+            val lifecycle = viewLifecycleOwner
+
+            mediaMetadata.observe(lifecycle) { metadata ->
+                binding.updateMetadata(view, metadata)
+            }
+
+            mediaButtonRes.observe(lifecycle) { res ->
                 binding.mediaButton.setImageResource(res)
-            })
-        nowPlayingViewModel.mediaPosition.observe(viewLifecycleOwner,
-            Observer { pos ->
+            }
+
+            mediaPosition.observe(lifecycle) { pos ->
                 binding.position.text = NowPlayingMetadata.timestampToMSS(context, pos)
-            })
+            }
+        }
 
         // Setup UI handlers for buttons
         binding.mediaButton.setOnClickListener {
@@ -86,10 +93,15 @@ class NowPlayingFragment : Fragment() {
         binding.position.text = NowPlayingMetadata.timestampToMSS(context, 0L)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
     /**
      * Internal function used to update all UI elements except for the current item playback
      */
-    private fun updateUI(view: View, metadata: NowPlayingMetadata) = with(binding) {
+    private fun FragmentNowplayingBinding.updateMetadata(view: View, metadata: NowPlayingMetadata) {
         if (metadata.albumArtUri == Uri.EMPTY) {
             albumArt.setImageResource(R.drawable.ic_album_black_24dp)
         } else {
