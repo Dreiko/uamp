@@ -26,6 +26,8 @@
         style="@style/MediaItemList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:context="com.example.android.uamp.fragments.MediaItemFragment"
@@ -42,9 +44,9 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
-        app:tint="@color/colorAccent"
         android:visibility="gone"
-        app:srcCompat="@drawable/ic_signal_wifi_off_black_24dp" />
+        app:srcCompat="@drawable/ic_signal_wifi_off_black_24dp"
+        app:tint="@color/colorAccent" />
 
 </FrameLayout>
 

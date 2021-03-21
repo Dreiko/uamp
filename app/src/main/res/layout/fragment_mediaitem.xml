@@ -19,16 +19,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/media_item_background"
-    android:padding="@dimen/media_item_control_margin">
+    android:layout_margin="@dimen/media_item_control_margin"
+    android:background="@drawable/media_item_background">
 
     <ImageView
         android:id="@+id/albumArt"
         android:layout_width="@dimen/media_item_art"
         android:layout_height="@dimen/media_item_art"
+        android:layout_marginStart="8dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_album_white_24dp"
         tools:ignore="ContentDescription" />

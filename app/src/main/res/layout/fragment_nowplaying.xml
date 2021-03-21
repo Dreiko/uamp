@@ -51,6 +51,7 @@
         android:layout_height="@dimen/exo_media_button_height"
         android:background="?attr/selectableItemBackground"
         android:scaleType="centerInside"
+        android:tint="@color/mediaControlColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider"
         app:srcCompat="@drawable/ic_play_arrow_black_24dp"
