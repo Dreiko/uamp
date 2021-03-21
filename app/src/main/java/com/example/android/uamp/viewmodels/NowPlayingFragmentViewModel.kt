@@ -34,13 +34,13 @@ import com.example.android.uamp.common.EMPTY_PLAYBACK_STATE
 import com.example.android.uamp.common.MusicServiceConnection
 import com.example.android.uamp.common.NOTHING_PLAYING
 import com.example.android.uamp.fragments.NowPlayingFragment
-import com.example.android.uamp.media.extensions.albumArtUri
 import com.example.android.uamp.media.extensions.currentPlayBackPosition
+import com.example.android.uamp.media.extensions.displayIconUri
 import com.example.android.uamp.media.extensions.displaySubtitle
+import com.example.android.uamp.media.extensions.displayTitle
 import com.example.android.uamp.media.extensions.duration
 import com.example.android.uamp.media.extensions.id
 import com.example.android.uamp.media.extensions.isPlaying
-import com.example.android.uamp.media.extensions.title
 
 /**
  * [ViewModel] for [NowPlayingFragment] which displays the album art in full size.
@@ -171,8 +171,8 @@ class NowPlayingFragmentViewModel(
         if (mediaMetadata.duration != 0L && mediaMetadata.id != null) {
             val nowPlayingMetadata = NowPlayingMetadata(
                 mediaMetadata.id!!,
-                mediaMetadata.albumArtUri,
-                mediaMetadata.title?.trim(),
+                mediaMetadata.displayIconUri,
+                mediaMetadata.displayTitle?.trim(),
                 mediaMetadata.displaySubtitle?.trim(),
                 NowPlayingMetadata.timestampToMSS(app, mediaMetadata.duration)
             )
