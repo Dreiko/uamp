@@ -37,10 +37,5 @@
             </intent-filter>
         </receiver>
 
-        <provider
-            android:name=".library.AlbumArtContentProvider"
-            android:authorities="com.example.android.uamp"
-            android:exported="true" />
-
     </application>
 </manifest>

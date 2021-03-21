@@ -26,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:targetSandboxVersion="2"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
 
         <!-- Enable instant app support -->
         <dist:module dist:instant="true" />
@@ -54,23 +55,23 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="example.android.com"
-                    android:pathPattern="/uamp"
+                    android:host="stream.affordablestreaming.com"
+                    android:port="8000"
                     android:scheme="http" />
             </intent-filter>
 
             <!-- App links for https -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.VIEW" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+            <!--                <category android:name="android.intent.category.DEFAULT" />-->
+            <!--                <category android:name="android.intent.category.BROWSABLE" />-->
 
-                <data
-                    android:host="example.android.com"
-                    android:pathPattern="/uamp"
-                    android:scheme="https" />
-            </intent-filter>
+            <!--                <data-->
+            <!--                    android:host="example.android.com"-->
+            <!--                    android:pathPattern="/uamp"-->
+            <!--                    android:scheme="https" />-->
+            <!--            </intent-filter>-->
 
             <intent-filter>
                 <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
