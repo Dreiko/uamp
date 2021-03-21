@@ -16,7 +16,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -36,7 +36,7 @@
     </style>
 
     <style name="MediaItemList">
-        <item name="android:background">@color/mediaListBackground</item>
+        <item name="android:background">@color/colorMediaItemBackground</item>
         <item name="android:paddingBottom">2dp</item>
         <!-- In order to account for optical illusions,
         make the end padding a bit larger so it visually looks the same. -->

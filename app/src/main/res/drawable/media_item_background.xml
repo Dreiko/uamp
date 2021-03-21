@@ -16,11 +16,11 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
+            <corners android:radius="@dimen/media_item_radius" />
             <stroke
                 android:width="@dimen/media_item_half_radius"
-                android:color="@color/mediaListBackground" />
-            <corners android:radius="@dimen/media_item_radius" />
-            <solid android:color="#ffffff" />
+                android:color="@color/colorMediaItemBackground" />
+            <solid android:color="?colorSurface" />
         </shape>
     </item>
 </layer-list>

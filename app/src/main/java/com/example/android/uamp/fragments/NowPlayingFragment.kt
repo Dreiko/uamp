@@ -104,7 +104,7 @@ class NowPlayingFragment : Fragment() {
      */
     private fun FragmentNowplayingBinding.updateMetadata(view: View, metadata: NowPlayingMetadata) {
         if (metadata.albumArtUri == Uri.EMPTY) {
-            albumArt.setImageResource(R.drawable.ic_album_black_24dp)
+            albumArt.setImageResource(R.drawable.ic_album_white_24dp)
         } else {
             Glide.with(view)
                 .load(metadata.albumArtUri)
