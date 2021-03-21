@@ -20,6 +20,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -68,12 +69,18 @@ class MediaItemAdapter(
             holder.item = mediaItem
             holder.titleView.text = mediaItem.title
             holder.subtitleView.text = mediaItem.subtitle
+            holder.subtitleView.isVisible = mediaItem.subtitle != null
             holder.playbackState.setImageResource(mediaItem.playbackRes)
 
-            Glide.with(holder.albumArt)
-                .load(mediaItem.albumArtUri)
-                .placeholder(R.drawable.default_art)
-                .into(holder.albumArt)
+            if (mediaItem.albumArtUri != null) {
+                Glide.with(holder.albumArt)
+                    .load(mediaItem.albumArtUri)
+                    .placeholder(R.drawable.default_art)
+                    .into(holder.albumArt)
+            } else {
+                Glide.with(holder.albumArt)
+                    .clear(holder.albumArt)
+            }
         }
     }
 

@@ -128,8 +128,6 @@ class StaticSource(resources: Resources) : AbstractMusicSource() {
 
             this.displayIconUri = artUri
             this.displayTitle = title
-            this.displaySubtitle = ""
-            this.displayDescription = ""
 
             this.flag = MediaBrowserCompat.MediaItem.FLAG_PLAYABLE
 

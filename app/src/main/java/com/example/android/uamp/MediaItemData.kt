@@ -34,8 +34,8 @@ import com.example.android.uamp.viewmodels.MediaItemFragmentViewModel
 data class MediaItemData(
     val mediaId: String,
     val title: String,
-    val subtitle: String,
-    val albumArtUri: Uri,
+    val subtitle: String?,
+    val albumArtUri: Uri?,
     val browsable: Boolean,
     var playbackRes: Int
 ) {

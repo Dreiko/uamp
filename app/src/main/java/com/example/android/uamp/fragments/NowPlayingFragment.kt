@@ -21,6 +21,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -111,6 +112,7 @@ class NowPlayingFragment : Fragment() {
         }
         title.text = metadata.title
         subtitle.text = metadata.subtitle
+        subtitle.isVisible = metadata.subtitle != null
         duration.text = metadata.duration
     }
 }

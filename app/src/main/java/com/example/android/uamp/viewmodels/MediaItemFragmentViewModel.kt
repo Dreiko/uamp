@@ -59,12 +59,11 @@ class MediaItemFragmentViewModel(
     private val subscriptionCallback = object : SubscriptionCallback() {
         override fun onChildrenLoaded(parentId: String, children: List<MediaItem>) {
             val itemsList = children.map { child ->
-                val subtitle = child.description.subtitle ?: ""
                 MediaItemData(
                     child.mediaId!!,
                     child.description.title.toString(),
-                    subtitle.toString(),
-                    child.description.iconUri!!,
+                    child.description.subtitle?.toString(),
+                    child.description.iconUri,
                     child.isBrowsable,
                     getResourceForMediaId(child.mediaId!!)
                 )

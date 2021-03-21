@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2018 Google Inc. All rights reserved.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,15 +14,8 @@
   ~ limitations under the License.
   -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:bottom="@dimen/media_item_negative_half_radius"
-        android:left="@dimen/media_item_negative_half_radius"
-        android:right="@dimen/media_item_negative_half_radius"
-        android:top="@dimen/media_item_negative_half_radius">
+    <item>
         <shape android:shape="rectangle">
-            <stroke
-                android:width="@dimen/media_item_half_radius"
-                android:color="@color/mediaListBackground" />
             <corners
                 android:bottomLeftRadius="@dimen/media_item_radius"
                 android:bottomRightRadius="0dp"
